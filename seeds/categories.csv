@@ -1,11 +1,11 @@
-﻿Allowance,Income,Income,Variable
+﻿category,category2,category3,fixed_vs_variable
+Allowance,Income,Income,Variable
 Bank Charge,Others,Expense,Variable
 Books,Extras,Expense,Variable
 Car Capital,One-Off,Capital,Capital
 Car Insurance,Transport (Driving),Expense,Fixed
 Car Maintenance,Transport (Driving),Expense,Variable
 Cashback,Income,Income,Variable
-category,category2,category3,fixed_vs_variable
 Claimable Expenses,Others,Transfer,Transfer
 Club Membership,Extras,Expense,Variable
 Dental,Wellness,Expense,Variable
