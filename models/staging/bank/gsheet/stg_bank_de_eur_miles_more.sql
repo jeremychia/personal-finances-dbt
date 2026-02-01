@@ -8,14 +8,14 @@ source as (
 renamed as (
     select
         'miles&more-cc' as bank_source,
-        parse_date('%d.%m.%Y', authorised_on) as local_date,
         'EUR' as local_currency,
+        category,
+        parse_date('%d.%m.%Y', authorised_on) as local_date,  -- convert european format
         safe_cast(
             replace(
                 replace(amount, '.', ''), ',', '.'
             ) as float64
-        ) as local_amount,  -- convert european format
-        category,
+        ) as local_amount,
         trim(description) as description
 
     from source

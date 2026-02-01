@@ -14,6 +14,8 @@ renamed as (
             ) as date
         ) as local_date,
         'HKD' as local_currency,
+        category,
+        target_name as description,
         case
             when lower(direction) = 'in'
                 then
@@ -25,9 +27,7 @@ renamed as (
                     -safe_cast(
                         target_amount_after_fees as float64
                     )
-        end as local_amount,
-        category as category,
-        target_name as description
+        end as local_amount
 
     from source
 )

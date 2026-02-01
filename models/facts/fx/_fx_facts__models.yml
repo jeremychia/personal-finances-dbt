@@ -2,8 +2,8 @@ version: 2
 models:
   - name: fact_eur_exchange_rates_long
     description: |
-      EUR exchange rates in long format for multi-currency analysis. Daily foreign exchange 
-      rates with EUR as the base currency. Transformed to long format with one row per 
+      EUR exchange rates in long format for multi-currency analysis. Daily foreign exchange
+      rates with EUR as the base currency. Transformed to long format with one row per
       date-currency pair for easy joining with transaction data. |
       Granularity: One row per date per currency pair |
       Filters: None - includes all available currencies |
@@ -17,12 +17,11 @@ models:
         description: Exchange rate from EUR to target currency
       - name: currency
         description: Target currency code
-
   - name: fact_sgd_exchange_rates_long
     description: |
-      SGD exchange rates in long format for multi-currency analysis. Daily foreign exchange 
-      rates with SGD as the base currency. Combines data from ECB EUR rates and direct SGD 
-      rates. Transformed to long format with one row per date-currency pair for easy joining 
+      SGD exchange rates in long format for multi-currency analysis. Daily foreign exchange
+      rates with SGD as the base currency. Combines data from ECB EUR rates and direct SGD
+      rates. Transformed to long format with one row per date-currency pair for easy joining
       with transaction data. |
       Granularity: One row per date per currency pair |
       Filters: None - includes all available currencies |

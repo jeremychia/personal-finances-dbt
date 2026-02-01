@@ -4,8 +4,10 @@ source as (select * from {{ source("google_sheets", "fr_eur_hsbcfr") }}),
 renamed as (
     select
         'hsbc-fr' as bank_source,
-        parse_date('%d/%m/%Y', operation) as local_date,
         'EUR' as local_currency,
+        category,
+        description,
+        parse_date('%d/%m/%Y', operation) as local_date,
         coalesce(
             cast(
                 replace(
@@ -20,9 +22,7 @@ renamed as (
                 ) as float64
             ),
             0
-        ) as local_amount,
-        category as category,
-        description as description
+        ) as local_amount
 
     from source
 )

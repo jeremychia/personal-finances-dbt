@@ -2,8 +2,8 @@ version: 2
 models:
   - name: dim_categories
     description: |
-      Category dimension for transaction categorization. Maps transaction categories 
-      to hierarchical groupings and expense types. Used for filtering and aggregating 
+      Category dimension for transaction categorization. Maps transaction categories
+      to hierarchical groupings and expense types. Used for filtering and aggregating
       transactions across all financial accounts. |
       Granularity: One row per unique category |
       Filters: None - includes all categories |
@@ -19,10 +19,9 @@ models:
         description: Tertiary category grouping
       - name: fixed_vs_variable
         description: Classification as fixed or variable expense
-  
   - name: dim_dates
     description: |
-      Date dimension for time-based analysis. Calendar table with date attributes 
+      Date dimension for time-based analysis. Calendar table with date attributes
       for time-series analysis and filtering. Covers dates from 2018-01-01 to 2028-12-31. |
       Granularity: One row per calendar date |
       Filters: Date range 2018-2028 |

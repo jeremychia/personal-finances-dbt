@@ -3,59 +3,55 @@ models:
   - name: stg_invm_hkdusd_invm
     description: |
       **HKD/USD investment account staging table.**
-      
-      Standardizes investment data from Hong Kong Dollar and US Dollar denominated accounts.
-      
-      **Granularity:** One row per date per investment position
-      
-      **Filters:** None
-      
-      **Keywords:** investments, HKD, USD, staging
 
+      Standardizes investment data from Hong Kong Dollar and US Dollar denominated accounts.
+
+      **Granularity:** One row per date per investment position
+
+      **Filters:** None
+
+      **Keywords:** investments, HKD, USD, staging
   - name: stg_invm_sgd_cdp_invm
     description: |
       **SGD CDP (Central Depository) investment account staging table.**
-      
-      Standardizes investment data from Singapore CDP brokerage account.
-      
-      **Granularity:** One row per date per investment position
-      
-      **Filters:** None
-      
-      **Keywords:** investments, SGD, CDP, Singapore, staging
 
+      Standardizes investment data from Singapore CDP brokerage account.
+
+      **Granularity:** One row per date per investment position
+
+      **Filters:** None
+
+      **Keywords:** investments, SGD, CDP, Singapore, staging
   - name: stg_invm_sgd_fundingsoc
     description: |
       **SGD Funding Societies P2P lending account staging table.**
-      
-      Standardizes investment data from Funding Societies peer-to-peer lending platform.
-      
-      **Granularity:** One row per date per investment position
-      
-      **Filters:** None
-      
-      **Keywords:** investments, SGD, P2P-lending, Funding-Societies, staging
 
+      Standardizes investment data from Funding Societies peer-to-peer lending platform.
+
+      **Granularity:** One row per date per investment position
+
+      **Filters:** None
+
+      **Keywords:** investments, SGD, P2P-lending, Funding-Societies, staging
   - name: stg_invm_sgd_invm
     description: |
       **SGD general investment account staging table.**
-      
-      Standardizes investment data from SGD-denominated investment accounts.
-      
-      **Granularity:** One row per date per investment position
-      
-      **Filters:** None
-      
-      **Keywords:** investments, SGD, staging
 
+      Standardizes investment data from SGD-denominated investment accounts.
+
+      **Granularity:** One row per date per investment position
+
+      **Filters:** None
+
+      **Keywords:** investments, SGD, staging
   - name: stg_invm_usd_invm
     description: |
       **USD investment account staging table.**
-      
+
       Standardizes investment data from US Dollar denominated investment accounts.
-      
+
       **Granularity:** One row per date per investment position
-      
+
       **Filters:** None
-      
+
       **Keywords:** investments, USD, staging

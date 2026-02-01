@@ -13,9 +13,9 @@ source as (
 
 fx as (
     select
-        parse_date('%d/%m/%Y', date) as local_date,
         cast(hkd as float64) as hkd,
-        cast(usd as float64) as usd
+        cast(usd as float64) as usd,
+        parse_date('%d/%m/%Y', date) as local_date
     from {{ source("google_sheets", "fx_sgd") }}
 ),
 

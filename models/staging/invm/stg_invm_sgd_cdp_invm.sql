@@ -8,8 +8,8 @@ source as (select * from {{ source("google_sheets", "sgd_cdp_invm") }}),
 
 renamed as (
     select
-        parse_date('%d/%m/%Y', date) as local_date,
         'SGD' as local_currency_market,
+        parse_date('%d/%m/%Y', date) as local_date,
         round(
             safe_cast(market_unit_price_sgd as float64)
             * safe_cast(quantity as float64),

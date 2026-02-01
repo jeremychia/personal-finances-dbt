@@ -3,37 +3,35 @@ models:
   - name: stg_fx_fx_eur
     description: |
       **EUR-based exchange rates staging table.**
-      
+
       Raw exchange rate data with EUR as base currency. Pivots wide format to long format
       with one row per date-currency pair for downstream processing.
-      
+
       **Granularity:** One row per date per currency
-      
+
       **Filters:** None
-      
+
       **Keywords:** forex, EUR, exchange-rates, staging
-    
   - name: stg_fx_fx_sgd
     description: |
       **SGD-based exchange rates staging table.**
-      
+
       Raw exchange rate data with SGD as base currency from Google Sheets source.
-      
+
       **Granularity:** One row per date per currency
-      
+
       **Filters:** None
-      
+
       **Keywords:** forex, SGD, exchange-rates, staging
-    
   - name: stg_fx_fx_sgd_from_eur_ecb
     description: |
       **SGD exchange rates derived from EUR ECB rates.**
-      
+
       Converts EUR-based rates to SGD-based rates using EUR/SGD cross rates.
       Used to supplement direct SGD rate data.
-      
+
       **Granularity:** One row per date per currency
-      
+
       **Filters:** None
-      
+
       **Keywords:** forex, SGD, EUR, cross-rates, ECB

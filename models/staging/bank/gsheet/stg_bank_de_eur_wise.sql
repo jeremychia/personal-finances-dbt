@@ -8,11 +8,11 @@ source as (
 renamed as (
     select
         'wise-eur' as bank_source,
-        parse_date('%d-%m-%Y', date) as local_date,
         'EUR' as local_currency,
-        safe_cast(amount as float64) as local_amount,
-        category as category,
-        description as description
+        category,
+        description,
+        parse_date('%d-%m-%Y', date) as local_date,
+        safe_cast(amount as float64) as local_amount
 
     from source
 )

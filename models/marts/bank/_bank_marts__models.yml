@@ -3,14 +3,14 @@ models:
   - name: mart_eur_bank_transactions
     description: |
       **Bank transactions normalized to EUR for European accounts analysis.**
-      
+
       All bank transactions converted to EUR using daily exchange rates. Includes category
       hierarchies and fixed vs. variable classification for expense analysis.
-      
+
       **Granularity:** One row per transaction
-      
+
       **Filters:** None - includes all transactions across currencies
-      
+
       **Keywords:** EUR, transactions, multi-currency, expenses, categories
     columns:
       - name: bank_source
@@ -37,18 +37,17 @@ models:
         description: Fixed or variable expense classification
       - name: description
         description: Transaction description
-
   - name: mart_eur_bank_balances
     description: |
       **Daily EUR-denominated bank account balances time series.**
-      
+
       Cumulative bank account balances over time, all converted to EUR. Shows daily balance
       progression with spot and current exchange rates for multi-currency accounts.
-      
+
       **Granularity:** One row per date per bank source per currency
-      
+
       **Filters:** Historical dates up to yesterday
-      
+
       **Keywords:** EUR, balances, time-series, cash-positions, multi-currency
     columns:
       - name: local_date
@@ -69,18 +68,17 @@ models:
         description: Current exchange rate
       - name: sgd_fx_gain_loss
         description: FX gains/losses in SGD (for consistency)
-
   - name: mart_sgd_bank_transactions
     description: |
       **Bank transactions normalized to SGD for Singaporean accounts analysis.**
-      
+
       All bank transactions converted to SGD using daily exchange rates. Includes category
       hierarchies and fixed vs. variable classification for expense analysis.
-      
+
       **Granularity:** One row per transaction
-      
+
       **Filters:** None - includes all transactions across currencies
-      
+
       **Keywords:** SGD, transactions, multi-currency, expenses, categories
     columns:
       - name: bank_source
@@ -107,18 +105,17 @@ models:
         description: Fixed or variable expense classification
       - name: description
         description: Transaction description
-
   - name: mart_sgd_bank_balances
     description: |
       **Daily SGD-denominated bank account balances time series.**
-      
+
       Cumulative bank account balances over time, all converted to SGD. Shows daily balance
       progression with spot and current exchange rates for multi-currency accounts.
-      
+
       **Granularity:** One row per date per bank source per currency
-      
+
       **Filters:** Historical dates up to yesterday
-      
+
       **Keywords:** SGD, balances, time-series, cash-positions, multi-currency
     columns:
       - name: local_date

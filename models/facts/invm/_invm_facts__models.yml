@@ -2,9 +2,9 @@ version: 2
 models:
   - name: fact_invm_balances_line_items
     description: |
-      Investment balance snapshots with mark-to-market valuations. Daily investment portfolio 
-      positions showing market value, cost basis, and unrealized gains/losses. Includes both 
-      local currency and SGD-converted values with separate tracking of investment performance 
+      Investment balance snapshots with mark-to-market valuations. Daily investment portfolio
+      positions showing market value, cost basis, and unrealized gains/losses. Includes both
+      local currency and SGD-converted values with separate tracking of investment performance
       vs. FX gains/losses. |
       Granularity: One row per date per investment source per currency |
       Filters: None - includes all investment accounts |
@@ -28,11 +28,10 @@ models:
         description: Unrealized FX gains/losses in SGD
       - name: is_redeemed
         description: Flag indicating if position has been liquidated
-
   - name: fact_invm_balances_sgd_movement
     description: |
-      Daily changes in investment portfolio values. Calculates day-over-day changes in 
-      investment positions, separating investment performance from FX movements. Used for 
+      Daily changes in investment portfolio values. Calculates day-over-day changes in
+      investment positions, separating investment performance from FX movements. Used for
       cash flow analysis and performance attribution. |
       Granularity: One row per date per investment source per currency |
       Filters: None - includes all investment accounts |

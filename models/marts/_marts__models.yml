@@ -3,15 +3,15 @@ models:
   - name: mart_sgd_balances
     description: |
       **Unified daily balances across all accounts (bank + investments) in SGD.**
-      
+
       Combines bank and investment balances into a single view for comprehensive net worth
       tracking. All values normalized to SGD with account type classification (cash,
       credit-card, investment) and latest date flagging for current positions.
-      
+
       **Granularity:** One row per date per source per account type
-      
+
       **Filters:** Historical dates up to yesterday
-      
+
       **Keywords:** net-worth, consolidated-balances, SGD, portfolio, investments, cash, total-assets
     columns:
       - name: account_type
@@ -36,18 +36,17 @@ models:
         description: ISO day of week
       - name: is_latest_date
         description: Flag for most recent date (current positions)
-
   - name: mart_transactions
     description: |
       **Unified transaction history across all bank accounts in SGD.**
-      
+
       Consolidated view of all bank transactions with category classifications and SGD
       normalization. Includes day-of-week analysis and fixed vs. variable expense tracking.
-      
+
       **Granularity:** One row per transaction
-      
+
       **Filters:** None - includes all transactions
-      
+
       **Keywords:** transactions, expenses, spending, SGD, categories, bank-activity
     columns:
       - name: bank_source
