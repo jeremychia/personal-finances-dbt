@@ -1,0 +1,78 @@
+version: 2
+models:
+  - name: mart_sgd_balances
+    description: |
+      **Unified daily balances across all accounts (bank + investments) in SGD.**
+      
+      Combines bank and investment balances into a single view for comprehensive net worth
+      tracking. All values normalized to SGD with account type classification (cash,
+      credit-card, investment) and latest date flagging for current positions.
+      
+      **Granularity:** One row per date per source per account type
+      
+      **Filters:** Historical dates up to yesterday
+      
+      **Keywords:** net-worth, consolidated-balances, SGD, portfolio, investments, cash, total-assets
+    columns:
+      - name: account_type
+        description: Account classification (investment, cash, credit-card)
+      - name: local_date
+        description: Balance date
+      - name: source_name
+        description: Unified source identifier (investment or bank)
+      - name: local_currency
+        description: Original account currency
+      - name: local_balance
+        description: Balance in local currency
+      - name: sgd_currency
+        description: SGD currency indicator
+      - name: sgd_balance
+        description: Balance converted to SGD
+      - name: sgd_invm_gain_loss
+        description: Investment gains/losses (SGD, 0 for bank accounts)
+      - name: sgd_fx_gain_loss
+        description: FX gains/losses (SGD)
+      - name: day_of_week_iso
+        description: ISO day of week
+      - name: is_latest_date
+        description: Flag for most recent date (current positions)
+
+  - name: mart_transactions
+    description: |
+      **Unified transaction history across all bank accounts in SGD.**
+      
+      Consolidated view of all bank transactions with category classifications and SGD
+      normalization. Includes day-of-week analysis and fixed vs. variable expense tracking.
+      
+      **Granularity:** One row per transaction
+      
+      **Filters:** None - includes all transactions
+      
+      **Keywords:** transactions, expenses, spending, SGD, categories, bank-activity
+    columns:
+      - name: bank_source
+        description: Source bank/account identifier
+      - name: local_date
+        description: Transaction date
+      - name: local_currency
+        description: Transaction currency
+      - name: local_amount
+        description: Transaction amount in local currency
+      - name: sgd_currency
+        description: SGD currency indicator
+      - name: sgd_amount
+        description: Transaction amount in SGD
+      - name: exchange_rate
+        description: Exchange rate used for conversion
+      - name: category
+        description: Primary transaction category
+      - name: category2
+        description: Secondary category grouping
+      - name: category3
+        description: Tertiary category grouping
+      - name: fixed_vs_variable
+        description: Fixed or variable expense classification
+      - name: description
+        description: Transaction description
+      - name: day_of_week_iso
+        description: ISO day of week for transaction date

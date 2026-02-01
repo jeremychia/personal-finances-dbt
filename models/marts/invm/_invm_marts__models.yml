@@ -1,0 +1,32 @@
+version: 2
+models:
+  - name: mart_sgd_invm_balances
+    description: |
+      **Investment portfolio daily balances with cumulative P&L tracking.**
+      
+      Complete investment portfolio positions over time showing market value and cumulative
+      unrealized gains/losses. Separates investment performance from FX movements for
+      accurate performance attribution.
+      
+      **Granularity:** One row per date per investment source per currency
+      
+      **Filters:** Historical dates up to yesterday
+      
+      **Keywords:** investments, portfolio-value, cumulative-gains, unrealized-PnL, SGD
+    columns:
+      - name: local_date
+        description: Balance date
+      - name: investment_source
+        description: Investment account identifier
+      - name: local_currency_market
+        description: Investment currency code
+      - name: sgd_currency_market
+        description: SGD currency indicator
+      - name: local_market
+        description: Market value in local currency
+      - name: sgd_market
+        description: Market value in SGD
+      - name: cumulative_sgd_invm_gain_loss
+        description: Cumulative unrealized investment gains/losses (SGD)
+      - name: cumulative_sgd_fx_gain_loss
+        description: Cumulative unrealized FX gains/losses (SGD)
