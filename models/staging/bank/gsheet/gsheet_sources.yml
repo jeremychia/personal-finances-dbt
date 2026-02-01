@@ -2,17 +2,18 @@ sources:
   - name: google_sheets
     description: >
       This source contains data stored in Google Sheets that are manually maintained.
-    project: 
+
+    project:
     dataset: google_sheets
     loader: external_table
     tags:
       - source
       - google_sheet
     tables:
-
       - name: de_eur_amex_payback
         description: >
           de_eur_amex (payback)
+
         external:
           options:
             format: GOOGLE_SHEETS
@@ -42,10 +43,10 @@ sources:
             data_type: STRING
           - name: category
             data_type: STRING
-
       - name: de_eur_amex_rose
         description: >
           de_eur_amex (rose metal)
+
         external:
           options:
             format: GOOGLE_SHEETS
@@ -75,10 +76,10 @@ sources:
             data_type: STRING
           - name: category
             data_type: STRING
-
       - name: de_eur_miles_more
         description: >
           de_eur_miles_more
+
         external:
           options:
             format: GOOGLE_SHEETS
@@ -108,10 +109,10 @@ sources:
             data_type: STRING
           - name: category
             data_type: STRING
-
       - name: sg_sgd_wise
         description: >
           sg_sgd_wise
+
         external:
           options:
             format: GOOGLE_SHEETS
@@ -181,11 +182,10 @@ sources:
             data_type: STRING
           - name: category
             data_type: STRING
-          
-
       - name: de_eur_wise
         description: >
           de_eur_wise
+
         external:
           options:
             format: GOOGLE_SHEETS
@@ -235,10 +235,10 @@ sources:
             data_type: STRING
           - name: category
             data_type: STRING
-
       - name: gb_gbp_wise
         description: >
           gb_gbp_wise
+
         external:
           options:
             format: GOOGLE_SHEETS
@@ -288,10 +288,10 @@ sources:
             data_type: STRING
           - name: category
             data_type: STRING
-
       - name: gb_hkd_wise
         description: >
           gb_hkd_wise
+
         external:
           options:
             format: GOOGLE_SHEETS
@@ -339,10 +339,10 @@ sources:
             data_type: STRING
           - name: category
             data_type: STRING
-            
       - name: us_usd_wise
         description: >
           us_usd_wise
+
         external:
           options:
             format: GOOGLE_SHEETS
@@ -388,10 +388,10 @@ sources:
             data_type: STRING
           - name: category
             data_type: STRING
-
       - name: de_eur_n26
         description: >
           de_eur_n26
+
         external:
           options:
             format: GOOGLE_SHEETS
@@ -406,7 +406,7 @@ sources:
           - name: account_number
             data_type: STRING
           - name: transaction_type
-            data_type: STRING            
+            data_type: STRING
           - name: payment_reference
             data_type: STRING
           - name: amount_eur
@@ -419,10 +419,10 @@ sources:
             data_type: STRING
           - name: category
             data_type: STRING
-
       - name: fr_eur_hsbcfr
         description: >
           fr_eur_hsbcfr
+
         external:
           options:
             format: GOOGLE_SHEETS
@@ -437,17 +437,17 @@ sources:
           - name: description
             data_type: STRING
           - name: debit
-            data_type: STRING            
+            data_type: STRING
           - name: credit
             data_type: STRING
           - name: category
             data_type: STRING
           - name: og_amt_sgd
             data_type: STRING
-
       - name: hk_hkd_hangseng
         description: >
           hk_hkd_hangseng
+
         external:
           options:
             format: GOOGLE_SHEETS
@@ -460,17 +460,17 @@ sources:
           - name: details
             data_type: STRING
           - name: debit
-            data_type: STRING            
+            data_type: STRING
           - name: credit
             data_type: STRING
           - name: account_balance
             data_type: STRING
           - name: category
             data_type: STRING
-
       - name: sg_eur_revolut_v2
         description: >
           sg_eur_revolut_v2
+
         external:
           options:
             format: GOOGLE_SHEETS
@@ -485,7 +485,7 @@ sources:
           - name: started_date
             data_type: STRING
           - name: completed_date
-            data_type: STRING            
+            data_type: STRING
           - name: description
             data_type: STRING
           - name: amount
@@ -499,11 +499,11 @@ sources:
           - name: balance
             data_type: STRING
           - name: category
-            data_type: STRING            
-
+            data_type: STRING
       - name: sg_other_revolut_v2
         description: >
           sg_other_revolut_v2
+
         external:
           options:
             format: GOOGLE_SHEETS
@@ -518,7 +518,7 @@ sources:
           - name: started_date
             data_type: STRING
           - name: completed_date
-            data_type: STRING            
+            data_type: STRING
           - name: description
             data_type: STRING
           - name: amount
@@ -532,11 +532,11 @@ sources:
           - name: balance
             data_type: STRING
           - name: category
-            data_type: STRING    
-
+            data_type: STRING
       - name: sg_sgd_revolut_v2
         description: >
           sg_sgd_revolut_v2
+
         external:
           options:
             format: GOOGLE_SHEETS
@@ -551,7 +551,7 @@ sources:
           - name: started_date
             data_type: STRING
           - name: completed_date
-            data_type: STRING            
+            data_type: STRING
           - name: description
             data_type: STRING
           - name: amount
@@ -565,11 +565,11 @@ sources:
           - name: balance
             data_type: STRING
           - name: category
-            data_type: STRING  
-
+            data_type: STRING
       - name: sg_sgd_dbs
         description: >
           sg_sgd_dbs
+
         external:
           options:
             format: GOOGLE_SHEETS
@@ -584,7 +584,7 @@ sources:
           - name: debit_amount
             data_type: STRING
           - name: credit_amount
-            data_type: STRING            
+            data_type: STRING
           - name: transaction_ref1
             data_type: STRING
           - name: transaction_ref2
@@ -592,11 +592,11 @@ sources:
           - name: transaction_ref3
             data_type: STRING
           - name: category
-            data_type: STRING 
-
+            data_type: STRING
       - name: sg_sgd_uob
         description: >
           sg_sgd_uob
+
         external:
           options:
             format: GOOGLE_SHEETS
@@ -611,15 +611,15 @@ sources:
           - name: withdrawal
             data_type: STRING
           - name: deposit
-            data_type: STRING            
+            data_type: STRING
           - name: available_balance
             data_type: STRING
           - name: category
             data_type: STRING
-
       - name: sg_sgd_uobcc
         description: >
           sg_sgd_uobcc
+
         external:
           options:
             format: GOOGLE_SHEETS
@@ -634,7 +634,7 @@ sources:
           - name: description
             data_type: STRING
           - name: foreign_currency_type
-            data_type: STRING            
+            data_type: STRING
           - name: transaction_amount_foreign
             data_type: STRING
           - name: local_currency_type

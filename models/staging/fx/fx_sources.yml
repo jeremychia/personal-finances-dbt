@@ -2,7 +2,8 @@ sources:
   - name: google_sheets
     description: >
       This source contains data stored in Google Sheets that are manually maintained.
-    project: 
+
+    project:
     dataset: google_sheets
     loader: external_table
     tags:
@@ -12,6 +13,7 @@ sources:
       - name: fx_sgd
         description: >
           fx_sgd
+
         external:
           options:
             format: GOOGLE_SHEETS
@@ -26,7 +28,7 @@ sources:
           - name: usd
             data_type: STRING
           - name: eur
-            data_type: STRING            
+            data_type: STRING
           - name: myr
             data_type: STRING
           - name: huf
@@ -40,4 +42,3 @@ sources:
       enabled: true
     tables:
       - name: fx_eur
-
