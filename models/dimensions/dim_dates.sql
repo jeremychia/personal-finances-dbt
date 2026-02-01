@@ -1,8 +1,10 @@
+{% set end_date = (modules.datetime.date.today() - modules.datetime.timedelta(days=1)).strftime('%Y-%m-%d') %}
+
 with base_dates as (
     {{
         dbt_date.get_base_dates(
             start_date="2018-01-01",
-            end_date="2028-12-31"
+            end_date=end_date
         )
     }}
 )
