@@ -1,0 +1,150 @@
+version: 2
+models:
+  # EUR Bank Accounts
+  - name: stg_bank_de_eur_amex_payback
+    description: |
+      **German EUR Amex Payback credit card staging.**
+      Standardizes transaction data from German American Express Payback card.
+      **Granularity:** One row per transaction | **Filters:** None | **Keywords:** EUR, Germany, Amex, credit-card, staging
+
+  - name: stg_bank_de_eur_amex_rose
+    description: |
+      **German EUR Amex Rose Metal credit card staging.**
+      Standardizes transaction data from German American Express Rose Metal card.
+      **Granularity:** One row per transaction | **Filters:** None | **Keywords:** EUR, Germany, Amex, credit-card, staging
+
+  - name: stg_bank_de_eur_miles_more
+    description: |
+      **German EUR Miles & More credit card staging.**
+      Standardizes transaction data from German Miles & More credit card.
+      **Granularity:** One row per transaction | **Filters:** None | **Keywords:** EUR, Germany, Miles-More, credit-card, staging
+
+  - name: stg_bank_de_eur_n26
+    description: |
+      **German EUR N26 bank account staging.**
+      Standardizes transaction data from N26 digital bank account.
+      **Granularity:** One row per transaction | **Filters:** None | **Keywords:** EUR, Germany, N26, digital-bank, staging
+
+  - name: stg_bank_de_eur_wise
+    description: |
+      **German EUR Wise account staging.**
+      Standardizes transaction data from Wise (formerly TransferWise) multi-currency account.
+      **Granularity:** One row per transaction | **Filters:** None | **Keywords:** EUR, Germany, Wise, multi-currency, staging
+
+  - name: stg_bank_fr_eur_hsbcfr
+    description: |
+      **French EUR HSBC France account staging.**
+      Standardizes transaction data from HSBC France bank account.
+      **Granularity:** One row per transaction | **Filters:** None | **Keywords:** EUR, France, HSBC, staging
+
+  - name: stg_bank_sg_eur_revolut_v1
+    description: |
+      **Singapore EUR Revolut account staging (version 1).**
+      Standardizes transaction data from Revolut EUR wallet (legacy format).
+      **Granularity:** One row per transaction | **Filters:** None | **Keywords:** EUR, Singapore, Revolut, multi-currency, staging
+
+  - name: stg_bank_sg_eur_revolut_v2
+    description: |
+      **Singapore EUR Revolut account staging (version 2).**
+      Standardizes transaction data from Revolut EUR wallet (current format).
+      **Granularity:** One row per transaction | **Filters:** None | **Keywords:** EUR, Singapore, Revolut, multi-currency, staging
+
+  # GBP Bank Accounts
+  - name: stg_bank_gb_gbp_wise
+    description: |
+      **UK GBP Wise account staging.**
+      Standardizes transaction data from Wise British Pound wallet.
+      **Granularity:** One row per transaction | **Filters:** None | **Keywords:** GBP, UK, Wise, multi-currency, staging
+
+  # HKD Bank Accounts
+  - name: stg_bank_gb_hkd_wise
+    description: |
+      **UK HKD Wise account staging.**
+      Standardizes transaction data from Wise Hong Kong Dollar wallet.
+      **Granularity:** One row per transaction | **Filters:** None | **Keywords:** HKD, UK, Wise, multi-currency, staging
+
+  - name: stg_bank_hk_hkd_hangseng
+    description: |
+      **Hong Kong HKD Hang Seng account staging.**
+      Standardizes transaction data from Hang Seng Bank account.
+      **Granularity:** One row per transaction | **Filters:** None | **Keywords:** HKD, Hong-Kong, Hang-Seng, staging
+
+  # SGD Bank Accounts
+  - name: stg_bank_sg_sgd_adjustments_v1
+    description: |
+      **Singapore SGD manual adjustments staging.**
+      Standardizes manual adjustment entries for Singapore Dollar accounts.
+      **Granularity:** One row per adjustment | **Filters:** None | **Keywords:** SGD, Singapore, adjustments, manual-entries, staging
+
+  - name: stg_bank_sg_sgd_citicc
+    description: |
+      **Singapore SGD Citibank credit card staging.**
+      Standardizes transaction data from Citibank Singapore credit card.
+      **Granularity:** One row per transaction | **Filters:** None | **Keywords:** SGD, Singapore, Citibank, credit-card, staging
+
+  - name: stg_bank_sg_sgd_dbs
+    description: |
+      **Singapore SGD DBS bank account staging.**
+      Standardizes transaction data from DBS Bank Singapore account.
+      **Granularity:** One row per transaction | **Filters:** None | **Keywords:** SGD, Singapore, DBS, staging
+
+  - name: stg_bank_sg_sgd_hsbccc
+    description: |
+      **Singapore SGD HSBC credit card staging.**
+      Standardizes transaction data from HSBC Singapore credit card.
+      **Granularity:** One row per transaction | **Filters:** None | **Keywords:** SGD, Singapore, HSBC, credit-card, staging
+
+  - name: stg_bank_sg_sgd_ocbc_v1
+    description: |
+      **Singapore SGD OCBC bank account staging.**
+      Standardizes transaction data from OCBC Bank Singapore account.
+      **Granularity:** One row per transaction | **Filters:** None | **Keywords:** SGD, Singapore, OCBC, staging
+
+  - name: stg_bank_sg_sgd_revolut_v1
+    description: |
+      **Singapore SGD Revolut account staging (version 1).**
+      Standardizes transaction data from Revolut SGD wallet (legacy format).
+      **Granularity:** One row per transaction | **Filters:** None | **Keywords:** SGD, Singapore, Revolut, multi-currency, staging
+
+  - name: stg_bank_sg_sgd_revolut_v2
+    description: |
+      **Singapore SGD Revolut account staging (version 2).**
+      Standardizes transaction data from Revolut SGD wallet (current format).
+      **Granularity:** One row per transaction | **Filters:** None | **Keywords:** SGD, Singapore, Revolut, multi-currency, staging
+
+  - name: stg_bank_sg_sgd_scbcc
+    description: |
+      **Singapore SGD Standard Chartered credit card staging.**
+      Standardizes transaction data from Standard Chartered Singapore credit card.
+      **Granularity:** One row per transaction | **Filters:** None | **Keywords:** SGD, Singapore, Standard-Chartered, credit-card, staging
+
+  - name: stg_bank_sg_sgd_uob
+    description: |
+      **Singapore SGD UOB bank account staging.**
+      Standardizes transaction data from United Overseas Bank account.
+      **Granularity:** One row per transaction | **Filters:** None | **Keywords:** SGD, Singapore, UOB, staging
+
+  - name: stg_bank_sg_sgd_uobcc
+    description: |
+      **Singapore SGD UOB credit card staging.**
+      Standardizes transaction data from UOB credit card.
+      **Granularity:** One row per transaction | **Filters:** None | **Keywords:** SGD, Singapore, UOB, credit-card, staging
+
+  - name: stg_bank_sg_sgd_wise
+    description: |
+      **Singapore SGD Wise account staging.**
+      Standardizes transaction data from Wise Singapore Dollar wallet.
+      **Granularity:** One row per transaction | **Filters:** None | **Keywords:** SGD, Singapore, Wise, multi-currency, staging
+
+  # Other Currency Accounts
+  - name: stg_bank_sg_other_revolut_v2
+    description: |
+      **Singapore multi-currency Revolut account staging (version 2).**
+      Standardizes transaction data from Revolut wallets in various currencies (non-EUR, non-SGD).
+      **Granularity:** One row per transaction | **Filters:** None | **Keywords:** multi-currency, Singapore, Revolut, staging
+
+  - name: stg_bank_us_usd_wise
+    description: |
+      **US USD Wise account staging.**
+      Standardizes transaction data from Wise US Dollar wallet.
+      **Granularity:** One row per transaction | **Filters:** None | **Keywords:** USD, US, Wise, multi-currency, staging
