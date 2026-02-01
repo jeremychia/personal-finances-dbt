@@ -2,7 +2,8 @@ sources:
   - name: google_sheets
     description: >
       This source contains data stored in Google Sheets that are manually maintained.
-    project: 
+
+    project:
     dataset: google_sheets
     loader: external_table
     tags:
@@ -12,6 +13,7 @@ sources:
       - name: sgd_cdp_invm
         description: >
           sgd_cdp_invm
+
         external:
           options:
             format: GOOGLE_SHEETS
@@ -26,15 +28,15 @@ sources:
           - name: market_unit_price_sgd
             data_type: STRING
           - name: quantity
-            data_type: STRING            
+            data_type: STRING
           - name: base_sgd
             data_type: STRING
           - name: is_redeemed
             data_type: STRING
-
       - name: usd_invm
         description: >
           usd_invm
+
         external:
           options:
             format: GOOGLE_SHEETS
@@ -49,13 +51,13 @@ sources:
           - name: base_usd
             data_type: STRING
           - name: base_sgd
-            data_type: STRING            
+            data_type: STRING
           - name: investment
             data_type: STRING
-
       - name: sgd_fundingsoc
         description: >
           sgd_fundingsoc
+
         external:
           options:
             format: GOOGLE_SHEETS
@@ -70,17 +72,17 @@ sources:
           - name: acc_balance_sgd
             data_type: STRING
           - name: outstanding_principle_sgd
-            data_type: STRING            
+            data_type: STRING
           - name: expected_returns_sgd
-            data_type: STRING  
+            data_type: STRING
           - name: investment
             data_type: STRING
           - name: is_redeemed
-            data_type: STRING 
-
+            data_type: STRING
       - name: sgd_invm
         description: >
           sgd_invm
+
         external:
           options:
             format: GOOGLE_SHEETS
@@ -95,13 +97,13 @@ sources:
           - name: base_sgd
             data_type: STRING
           - name: investment
-            data_type: STRING            
+            data_type: STRING
           - name: is_redeemed
-            data_type: STRING  
-
+            data_type: STRING
       - name: hkd_usd_invm
         description: >
           hkd_usd_invm
+
         external:
           options:
             format: GOOGLE_SHEETS
@@ -116,12 +118,12 @@ sources:
           - name: base_usd
             data_type: STRING
           - name: market_hkd
-            data_type: STRING            
+            data_type: STRING
           - name: base_hkd
-            data_type: STRING    
+            data_type: STRING
           - name: base_sgd
-            data_type: STRING        
+            data_type: STRING
           - name: investment
-            data_type: STRING 
+            data_type: STRING
           - name: is_redeemed
-            data_type: STRING 
+            data_type: STRING
