@@ -1,7 +1,7 @@
 {{ config(materialized="table") }}
 
 with
-    unioned as (
+unioned as (
         {{
             dbt_utils.union_relations(
                 relations=[
@@ -11,23 +11,23 @@ with
                 source_column_name=None,
             )
         }}
-    ),
+),
 
-    renamed as (
-        select
-            source,
-            local_date,
-            local_currency,
-            local_amount,
-            coalesce(eur_currency, sgd_currency) as translated_currency,
-            coalesce(eur_amount, sgd_amount) as translated_amount,
-            category,
-            category2,
-            category3,
-            fixed_vs_variable,
-            description
-        from unioned
-    )
+renamed as (
+    select
+        bank_source,
+        local_date,
+        local_currency,
+        local_amount,
+        category,
+        category2,
+        category3,
+        fixed_vs_variable,
+        description,
+        coalesce(eur_currency, sgd_currency) as translated_currency,
+        coalesce(eur_amount, sgd_amount) as translated_amount
+    from unioned
+)
 
 select *
 from renamed
