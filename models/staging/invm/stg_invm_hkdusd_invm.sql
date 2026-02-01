@@ -6,16 +6,16 @@
 with
 source as (
     select
-        * except ({{ adapter.quote("date") }}),
-        parse_date('%d/%m/%Y', {{ adapter.quote("date") }}) as local_date
+        * except (date),
+        parse_date('%d/%m/%Y', date) as local_date
     from {{ source("google_sheets", "hkd_usd_invm") }}
 ),
 
 fx as (
     select
         parse_date('%d/%m/%Y', date) as local_date,
-        cast({{ adapter.quote("hkd") }} as float64) as hkd,
-        cast({{ adapter.quote("usd") }} as float64) as usd
+        cast(hkd as float64) as hkd,
+        cast(usd as float64) as usd
     from {{ source("google_sheets", "fx_sgd") }}
 ),
 
@@ -23,11 +23,11 @@ hkd as (
     select
         local_date,
         'HKD' as local_currency_market,
-        safe_cast({{ adapter.quote("market_hkd") }} as float64) as local_market,
-        safe_cast({{ adapter.quote("base_hkd") }} as float64) as hkd_base,
+        safe_cast(market_hkd as float64) as local_market,
+        safe_cast(base_hkd as float64) as hkd_base,
         0 as usd_base,
-        {{ adapter.quote("investment") }} as investment_source,
-        safe_cast({{ adapter.quote("is_redeemed") }} as boolean) as is_redeemed
+        investment as investment_source,
+        safe_cast(is_redeemed as boolean) as is_redeemed
     from source
 ),
 
@@ -35,11 +35,11 @@ usd as (
     select
         local_date,
         'USD' as local_currency_market,
-        safe_cast({{ adapter.quote("market_usd") }} as float64) as local_market,
+        safe_cast(market_usd as float64) as local_market,
         0 as hkd_base,
-        safe_cast({{ adapter.quote("base_usd") }} as float64) as usd_base,
-        {{ adapter.quote("investment") }} as investment_source,
-        safe_cast({{ adapter.quote("is_redeemed") }} as boolean) as is_redeemed
+        safe_cast(base_usd as float64) as usd_base,
+        investment as investment_source,
+        safe_cast(is_redeemed as boolean) as is_redeemed
     from source
 ),
 
