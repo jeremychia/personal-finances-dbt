@@ -8,15 +8,15 @@ source as (
 renamed as (
     select
         'miles&more-cc' as bank_source,
-        parse_date('%d.%m.%Y', {{ adapter.quote("authorised_on") }}) as local_date,
+        parse_date('%d.%m.%Y', authorised_on) as local_date,
         'EUR' as local_currency,
         safe_cast(
             replace(
-                replace({{ adapter.quote("amount") }}, '.', ''), ',', '.'
+                replace(amount, '.', ''), ',', '.'
             ) as float64
         ) as local_amount,  -- convert european format
-        {{ adapter.quote("category") }},
-        trim({{ adapter.quote("description") }}) as description
+        category,
+        trim(description) as description
 
     from source
 )

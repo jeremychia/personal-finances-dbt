@@ -6,14 +6,14 @@ renamed as (
         'adjustments-sgd' as bank_source,
         date_sub(
             date_add(
-                parse_date('%Y-%m', {{ adapter.quote("yyyymm") }}), interval 1 month
+                parse_date('%Y-%m', yyyymm), interval 1 month
             ),
             interval 1 day
         ) as local_date,
         'SGD' as local_currency,
-        {{ adapter.quote("amount") }} as local_amount,
-        {{ adapter.quote("category") }} as category,
-        {{ adapter.quote("remarks") }} as description
+        amount as local_amount,
+        category as category,
+        remarks as description
 
     from source
 )

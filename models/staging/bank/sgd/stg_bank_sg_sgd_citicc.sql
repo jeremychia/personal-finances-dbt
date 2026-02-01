@@ -5,12 +5,12 @@ renamed as (
     select
         'citi-cc' as bank_source,
         parse_date(
-            '%d/%m/%Y', {{ adapter.quote("transaction_date") }}
+            '%d/%m/%Y', transaction_date
         ) as local_date,
         'SGD' as local_currency,
-        {{ adapter.quote("amount") }} as local_amount,
-        {{ adapter.quote("category") }} as category,
-        {{ adapter.quote("description") }} as description
+        amount as local_amount,
+        category as category,
+        description as description
 
     from source
 )
