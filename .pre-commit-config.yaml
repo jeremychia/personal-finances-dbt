@@ -1,0 +1,76 @@
+repos:
+  # General file checks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+        name: Trim trailing whitespace
+      - id: end-of-file-fixer
+        name: Fix end of files
+      - id: check-yaml
+        name: Check YAML syntax
+        args: ['--unsafe'] # Allow custom YAML tags used by dbt
+      - id: check-added-large-files
+        name: Check for large files
+        args: ['--maxkb=1000']
+      - id: check-merge-conflict
+        name: Check for merge conflicts
+      - id: check-case-conflict
+        name: Check for case conflicts
+      - id: mixed-line-ending
+        name: Check for mixed line endings
+        args: ['--fix=lf']
+  # SQL linting with sqlfluff
+  - repo: https://github.com/sqlfluff/sqlfluff
+    rev: 4.0.0
+    hooks:
+      - id: sqlfluff-lint
+        name: Lint SQL files
+        args: ['--dialect', 'bigquery']
+        additional_dependencies: ['sqlfluff-templater-dbt==4.0.0', 'dbt-core>=1.9,<2.0', 'dbt-bigquery>=1.9,<2.0']
+      - id: sqlfluff-fix
+        name: Fix SQL files
+        args: ['--dialect', 'bigquery', '--force']
+        additional_dependencies: ['sqlfluff-templater-dbt==4.0.0', 'dbt-core>=1.9,<2.0', 'dbt-bigquery>=1.9,<2.0']
+  # YAML formatting
+  - repo: https://github.com/google/yamlfmt
+    rev: v0.10.0
+    hooks:
+      - id: yamlfmt
+        name: Format YAML files
+        exclude: '.sqlfluff'
+  # Python code quality (for any custom Python scripts)
+  - repo: https://github.com/psf/black
+    # dbt-specific checks (commented out - require dbt profile setup and manifest)
+    # Uncomment after running 'dbt compile' to generate target/manifest.json
+    # - repo: https://github.com/dbt-checkpoint/dbt-checkpoint
+    #   rev: v1.2.1
+    #   hooks:
+    #     - id: check-model-has-description
+    #       name: Check models have descriptions
+    #       files: 'models/'
+    #     - id: check-model-columns-have-desc
+    #       name: Check model columns have descriptions
+    #       files: 'models/(marts|facts|dimensions)/'
+    #     - id: check-model-has-tests
+    #       name: Check models have tests
+    #       files: 'models/(marts|facts|dimensions)/'
+    #     - id: dbt-compile
+    #       name: dbt compile
+    #     - id: check-source-has-tests
+    #       name: Check sources have tests
+    #       files: 'models/sources.yml'
+
+    rev: 24.1.1
+    hooks:
+      - id: black
+        name: Format Python files
+        language_version: python3
+  # Check for secrets/credentials
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.4.0
+    hooks:
+      - id: detect-secrets
+        name: Detect secrets
+        args: ['--baseline', '.secrets.baseline']
+        exclude: 'poetry.lock|package-lock.yml'
