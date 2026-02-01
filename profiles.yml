@@ -1,0 +1,25 @@
+# dbt profile configuration
+# For local development and docker containers
+# Place your service account keyfile at: keys/keyfile.json
+
+jeremy-chia:
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: jeremy-chia
+      dataset: dev
+      keyfile: "{{ env_var('DBT_KEYFILE_PATH', 'keys/keyfile.json') }}"
+      threads: 8
+      timeout_seconds: 600
+      location: US
+    prod:
+      type: bigquery
+      method: service-account
+      project: jeremy-chia
+      dataset: prod
+      keyfile: "{{ env_var('DBT_KEYFILE_PATH', 'keys/keyfile.json') }}"
+      threads: 8
+      timeout_seconds: 600
+      location: US
+  target: prod
