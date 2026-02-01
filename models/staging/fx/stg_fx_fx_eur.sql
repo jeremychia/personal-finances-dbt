@@ -8,10 +8,10 @@
 with
 source as (
     select
-        {{ adapter.quote("source_currency") }},  -- this is EUR
-        {{ adapter.quote("target_currency") }},  -- this can be SGD, HUF, etc.
-        {{ adapter.quote("date") }},
-        {{ adapter.quote("amount") }}
+        source_currency,  -- this is EUR
+        target_currency,  -- this can be SGD, HUF, etc.
+        date,
+        amount
     from {{ source("fx", "fx_eur") }}
 ),
 
