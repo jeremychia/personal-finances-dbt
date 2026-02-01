@@ -28,7 +28,7 @@ Sources → Staging → Facts/Dimensions → Marts
 ### Key Features
 - **Multi-currency support**: Primary focus on SGD with EUR, USD, HKD conversions
 - **Temporal tracking**: Daily snapshots with historical analysis
-- **Investment analytics**: Market value vs. cost basis with P&L calculations  
+- **Investment analytics**: Market value vs. cost basis with P&L calculations
 - **Flexible categorization**: Hierarchical expense categories (category → category2 → category3)
 
 ## 📊 Data Model Structure
@@ -124,11 +124,124 @@ The project handles multi-currency scenarios with:
 
 ## 🚀 Getting Started
 
-1. **Prerequisites**: dbt Core with BigQuery adapter
-2. **Configuration**: Set up `profiles.yml` for your data warehouse
-3. **Dependencies**: Run `dbt deps` to install required packages
-4. **Seeds**: Load category mapping with `dbt seed`
-5. **Build**: Execute full pipeline with `dbt build`
+### Prerequisites
+- Python 3.12 (or 3.10-3.13)
+- Poetry for dependency management
+- [direnv](https://direnv.net/) for automatic environment loading
+- BigQuery project with appropriate permissions
+- Google Cloud service account key
+
+### Initial Setup
+
+1. **Install direnv (if not already installed):**
+   ```bash
+   # macOS
+   brew install direnv
+
+   # Add to ~/.zshrc (or ~/.bashrc for bash)
+   eval "$(direnv hook zsh)"
+
+   # Restart your shell or run:
+   source ~/.zshrc
+   ```
+
+2. **Install Python dependencies:**
+   ```bash
+   poetry install
+   ```
+
+3. **Configure BigQuery credentials:**
+
+   Place your service account key in the `keys/` directory:
+   ```bash
+   # Option 1: Copy your key file
+   cp /path/to/your-service-account-key.json keys/keyfile.json
+
+   # Option 2: Create a symlink
+   ln -s /path/to/your-service-account-key.json keys/keyfile.json
+   ```
+
+4. **Allow direnv for this project:**
+   ```bash
+   # From the project directory
+   direnv allow
+   ```
+
+   Now the poetry environment and dbt variables load automatically when you cd into the project!
+
+5. **Update profiles.yml:**
+
+   Edit `profiles.yml` and update the `project` and `dataset` values:
+   ```yaml
+   jeremy-chia:
+     outputs:
+       dev:
+         project: your-project-id  # Update this
+         dataset: analytics_dev     # Update this
+   ```
+
+6. **Install dbt packages:**
+   ```bash
+   dbt deps
+   ```
+
+7. **Install pre-commit hooks:**
+   ```bash
+   pre-commit install
+   ```
+
+8. **Load seed data:**
+   ```bash
+   dbt seed
+   ```
+
+9. **Build the project:**
+   ```bash
+   # Dev environment (default)
+   dbt build
+
+   # Production environment
+   dbt build --target prod
+   ```
+
+**Note:** With direnv, you don't need to prefix commands with `poetry run` - the virtual environment is automatically activated when you're in the project directory!
+
+### Customizing direnv Settings
+
+To override environment variables locally (e.g., use prod by default):
+
+```bash
+# Create .envrc.local (git-ignored)
+echo 'export DBT_TARGET=prod' > .envrc.local
+direnv allow
+```
+
+## 🔧 Development Setup
+
+### Pre-commit Hooks
+This project uses pre-commit hooks to maintain code quality:
+
+```bash
+# Install pre-commit hooks
+pre-commit install
+
+# Run hooks manually on all files
+pre-commit run --all-files
+
+# Run hooks on staged files (happens automatically on commit)
+git commit -m "your message"
+```
+
+**Configured hooks:**
+- SQL formatting with sqlfmt
+- YAML formatting and validation
+- dbt parse and compile checks
+- Model documentation validation (marts/facts/dimensions only)
+- Trailing whitespace and file ending fixes
+- Secret detection
+- Python code formatting with black
+
+**Note**: Some hooks (like `check-model-has-description`) are intentionally scoped to specific layers to allow flexibility in staging models while enforcing standards on production models.
 
 ## 📝 Usage Examples
 

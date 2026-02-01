@@ -165,3 +165,23 @@ target/
 dbt_packages/
 logs/
 # end dbt Cloud content
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Keys
+.keys
+keys/
+
+# Environment variables
+.env
+.env.local
+
+# direnv local overrides
+.envrc.local
