@@ -1,0 +1,141 @@
+version: 2
+models:
+  - name: mart_eur_bank_transactions
+    description: |
+      **Bank transactions normalized to EUR for European accounts analysis.**
+      
+      All bank transactions converted to EUR using daily exchange rates. Includes category
+      hierarchies and fixed vs. variable classification for expense analysis.
+      
+      **Granularity:** One row per transaction
+      
+      **Filters:** None - includes all transactions across currencies
+      
+      **Keywords:** EUR, transactions, multi-currency, expenses, categories
+    columns:
+      - name: bank_source
+        description: Source bank/account identifier
+      - name: local_date
+        description: Transaction date
+      - name: local_currency
+        description: Original transaction currency
+      - name: local_amount
+        description: Original transaction amount
+      - name: eur_currency
+        description: EUR currency indicator
+      - name: eur_amount
+        description: Transaction amount converted to EUR
+      - name: exchange_rate
+        description: Exchange rate used for EUR conversion
+      - name: category
+        description: Primary transaction category
+      - name: category2
+        description: Secondary category grouping
+      - name: category3
+        description: Tertiary category grouping
+      - name: fixed_vs_variable
+        description: Fixed or variable expense classification
+      - name: description
+        description: Transaction description
+
+  - name: mart_eur_bank_balances
+    description: |
+      **Daily EUR-denominated bank account balances time series.**
+      
+      Cumulative bank account balances over time, all converted to EUR. Shows daily balance
+      progression with spot and current exchange rates for multi-currency accounts.
+      
+      **Granularity:** One row per date per bank source per currency
+      
+      **Filters:** Historical dates up to yesterday
+      
+      **Keywords:** EUR, balances, time-series, cash-positions, multi-currency
+    columns:
+      - name: local_date
+        description: Balance date
+      - name: bank_source
+        description: Source bank/account identifier
+      - name: local_currency
+        description: Account currency
+      - name: local_balance
+        description: Balance in local currency
+      - name: eur_currency
+        description: EUR currency indicator
+      - name: eur_amount
+        description: Balance converted to EUR at current rate
+      - name: eur_spot_rate
+        description: Balance converted to EUR at historical spot rate
+      - name: exchange_rate
+        description: Current exchange rate
+      - name: sgd_fx_gain_loss
+        description: FX gains/losses in SGD (for consistency)
+
+  - name: mart_sgd_bank_transactions
+    description: |
+      **Bank transactions normalized to SGD for Singaporean accounts analysis.**
+      
+      All bank transactions converted to SGD using daily exchange rates. Includes category
+      hierarchies and fixed vs. variable classification for expense analysis.
+      
+      **Granularity:** One row per transaction
+      
+      **Filters:** None - includes all transactions across currencies
+      
+      **Keywords:** SGD, transactions, multi-currency, expenses, categories
+    columns:
+      - name: bank_source
+        description: Source bank/account identifier
+      - name: local_date
+        description: Transaction date
+      - name: local_currency
+        description: Original transaction currency
+      - name: local_amount
+        description: Original transaction amount
+      - name: sgd_currency
+        description: SGD currency indicator
+      - name: sgd_amount
+        description: Transaction amount converted to SGD
+      - name: exchange_rate
+        description: Exchange rate used for SGD conversion
+      - name: category
+        description: Primary transaction category
+      - name: category2
+        description: Secondary category grouping
+      - name: category3
+        description: Tertiary category grouping
+      - name: fixed_vs_variable
+        description: Fixed or variable expense classification
+      - name: description
+        description: Transaction description
+
+  - name: mart_sgd_bank_balances
+    description: |
+      **Daily SGD-denominated bank account balances time series.**
+      
+      Cumulative bank account balances over time, all converted to SGD. Shows daily balance
+      progression with spot and current exchange rates for multi-currency accounts.
+      
+      **Granularity:** One row per date per bank source per currency
+      
+      **Filters:** Historical dates up to yesterday
+      
+      **Keywords:** SGD, balances, time-series, cash-positions, multi-currency
+    columns:
+      - name: local_date
+        description: Balance date
+      - name: bank_source
+        description: Source bank/account identifier
+      - name: local_currency
+        description: Account currency
+      - name: local_balance
+        description: Balance in local currency
+      - name: sgd_currency
+        description: SGD currency indicator
+      - name: sgd_amount
+        description: Balance converted to SGD at current rate
+      - name: sgd_spot_rate
+        description: Balance converted to SGD at historical spot rate
+      - name: exchange_rate
+        description: Current exchange rate
+      - name: sgd_fx_gain_loss
+        description: FX gains/losses in SGD
