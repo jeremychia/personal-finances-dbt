@@ -1,5 +1,5 @@
 with
-    union_all as (
+union_all as (
         {{
             dbt_utils.union_relations(
                 relations=[
@@ -31,7 +31,13 @@ with
                 source_column_name=None,
             )
         }}
-    )
+)
 
-select source, local_date, local_currency, local_amount, category, description
+select
+    bank_source,
+    local_date,
+    local_currency,
+    local_amount,
+    category,
+    description
 from union_all
