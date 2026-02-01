@@ -1,0 +1,24 @@
+version: 2
+models:
+  - name: fact_bank_transactions
+    description: |
+      Unified bank transaction fact table across all accounts and currencies. Consolidates 
+      transactions from all bank accounts (checking, savings, credit cards) across multiple 
+      countries and currencies. Standardizes transaction data with consistent schema including 
+      transaction dates, amounts, categories, and source accounts. |
+      Granularity: One row per bank transaction |
+      Filters: None - includes all transactions from all sources |
+      Keywords: transactions, banking, payments, transfers, multi-currency, credit-card, checking-account
+    columns:
+      - name: bank_source
+        description: Source bank/account identifier (e.g., sg_sgd_dbs, de_eur_n26)
+      - name: local_date
+        description: Transaction date in local timezone
+      - name: local_currency
+        description: Transaction currency code (SGD, EUR, USD, etc.)
+      - name: local_amount
+        description: Transaction amount in local currency (negative for debits, positive for credits)
+      - name: category
+        description: Transaction category for expense tracking
+      - name: description
+        description: Transaction description or merchant name

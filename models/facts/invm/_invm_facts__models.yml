@@ -1,0 +1,56 @@
+version: 2
+models:
+  - name: fact_invm_balances_line_items
+    description: |
+      Investment balance snapshots with mark-to-market valuations. Daily investment portfolio 
+      positions showing market value, cost basis, and unrealized gains/losses. Includes both 
+      local currency and SGD-converted values with separate tracking of investment performance 
+      vs. FX gains/losses. |
+      Granularity: One row per date per investment source per currency |
+      Filters: None - includes all investment accounts |
+      Keywords: investments, portfolio, market-value, unrealized-gains, multi-currency, SGD-conversion
+    columns:
+      - name: investment_source
+        description: Investment account identifier
+      - name: local_date
+        description: Balance snapshot date
+      - name: local_currency_market
+        description: Investment currency code
+      - name: local_market
+        description: Market value in local currency
+      - name: sgd_currency_market
+        description: SGD currency indicator
+      - name: sgd_market
+        description: Market value converted to SGD
+      - name: sgd_invm_gain_loss
+        description: Unrealized investment gains/losses in SGD
+      - name: sgd_fx_gain_loss
+        description: Unrealized FX gains/losses in SGD
+      - name: is_redeemed
+        description: Flag indicating if position has been liquidated
+
+  - name: fact_invm_balances_sgd_movement
+    description: |
+      Daily changes in investment portfolio values. Calculates day-over-day changes in 
+      investment positions, separating investment performance from FX movements. Used for 
+      cash flow analysis and performance attribution. |
+      Granularity: One row per date per investment source per currency |
+      Filters: None - includes all investment accounts |
+      Keywords: investments, movements, changes, performance-attribution, SGD-conversion
+    columns:
+      - name: investment_source
+        description: Investment account identifier
+      - name: local_date
+        description: Movement date
+      - name: local_currency_market
+        description: Investment currency code
+      - name: sgd_currency_market
+        description: SGD currency indicator
+      - name: change_local_market
+        description: Change in market value (local currency)
+      - name: change_sgd_market
+        description: Change in market value (SGD)
+      - name: change_sgd_invm_gain_loss
+        description: Change in investment gains/losses (SGD)
+      - name: change_sgd_fx_gain_loss
+        description: Change in FX gains/losses (SGD)
