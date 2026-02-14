@@ -179,6 +179,9 @@ logs/
 .keys
 keys/
 
+# Dashboard cached data
+dashboard/data/
+
 # Environment variables
 .env
 .env.local
