@@ -28,10 +28,12 @@ repos:
         name: Lint SQL files
         args: ['--dialect', 'bigquery']
         additional_dependencies: ['sqlfluff-templater-dbt==4.0.0', 'dbt-core>=1.9,<2.0', 'dbt-bigquery>=1.9,<2.0']
+        language_version: python3.12
       - id: sqlfluff-fix
         name: Fix SQL files
         args: ['--dialect', 'bigquery', '--force']
         additional_dependencies: ['sqlfluff-templater-dbt==4.0.0', 'dbt-core>=1.9,<2.0', 'dbt-bigquery>=1.9,<2.0']
+        language_version: python3.12
   # YAML formatting
   - repo: https://github.com/google/yamlfmt
     rev: v0.10.0

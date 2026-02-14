@@ -1,0 +1,20 @@
+[sqlfluff]
+dialect = bigquery
+templater = dbt
+exclude_rules = None
+
+[sqlfluff:templater:dbt]
+project_dir = ./
+profiles_dir = ./
+profile = jeremy-chia
+
+[sqlfluff:indentation]
+indent_unit = space
+tab_space_size = 4
+
+[sqlfluff:layout:type:comma]
+line_position = trailing
+
+# Allow unparseable BigQuery-specific syntax like UNPIVOT
+[sqlfluff:rules]
+allow_scalar = True
