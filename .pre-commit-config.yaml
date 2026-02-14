@@ -21,19 +21,22 @@ repos:
         name: Check for mixed line endings
         args: ['--fix=lf']
   # SQL linting with sqlfluff
+  # Note: Run manually with `poetry run sqlfluff lint` for faster feedback
   - repo: https://github.com/sqlfluff/sqlfluff
     rev: 4.0.0
     hooks:
       - id: sqlfluff-lint
         name: Lint SQL files
+        args: ['--dialect', 'bigquery', '--processes', '4']
+        additional_dependencies: ['sqlfluff-templater-dbt==4.0.0', 'dbt-core>=1.9,<2.0', 'dbt-bigquery>=1.9,<2.0']
+        language_version: python3.12
+        stages: [manual]
+      - id: sqlfluff-fix
+        name: Fix SQL files
         args: ['--dialect', 'bigquery']
         additional_dependencies: ['sqlfluff-templater-dbt==4.0.0', 'dbt-core>=1.9,<2.0', 'dbt-bigquery>=1.9,<2.0']
         language_version: python3.12
-      - id: sqlfluff-fix
-        name: Fix SQL files
-        args: ['--dialect', 'bigquery', '--force']
-        additional_dependencies: ['sqlfluff-templater-dbt==4.0.0', 'dbt-core>=1.9,<2.0', 'dbt-bigquery>=1.9,<2.0']
-        language_version: python3.12
+        stages: [manual]
   # YAML formatting
   - repo: https://github.com/google/yamlfmt
     rev: v0.10.0
