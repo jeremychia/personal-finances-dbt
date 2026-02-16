@@ -216,7 +216,65 @@ echo 'export DBT_TARGET=prod' > .envrc.local
 direnv allow
 ```
 
-## 🔧 Development Setup
+## � Documentation Deployment
+
+This project automatically deploys dbt documentation to GitHub Pages. The documentation includes:
+- **Lineage graphs**: Visual representation of data flow and model dependencies
+- **Model documentation**: Detailed descriptions of all models, columns, and tests
+- **Source documentation**: Information about raw data sources and their schemas
+
+### Accessing the Documentation
+The dbt docs are automatically deployed to: `https://jeremychia.github.io/personal-finances-dbt/`
+
+### How it Works
+The deployment is handled by a GitHub Actions workflow (`.github/workflows/deploy-dbt-docs.yml`) that:
+
+1. **Triggers on**:
+   - Push to the `main` branch
+   - Pull requests to `main` (builds but doesn't deploy)
+   - Manual workflow dispatch
+
+2. **Build Process**:
+   - Sets up Python 3.12 environment
+   - Installs dependencies via Poetry
+   - Authenticates with BigQuery using service account
+   - Installs dbt packages
+   - Generates dbt documentation (`dbt docs generate`)
+   - Prepares files for GitHub Pages deployment
+
+3. **Deployment**: Deploys the generated documentation to GitHub Pages (main branch only)
+
+### Setup Requirements
+
+To enable this workflow, you need to:
+
+1. **Enable GitHub Pages** in your repository settings:
+   - Go to Settings → Pages
+   - Source: "GitHub Actions"
+
+2. **Add BigQuery Service Account Secret**:
+   ```bash
+   # Create base64 encoded service account key
+   cat keys/keyfile.json | base64 > keyfile_base64.txt
+   ```
+   - Go to Settings → Secrets and variables → Actions
+   - Add repository secret named `DBT_SERVICE_ACCOUNT_KEY`
+   - Paste the base64 encoded content as the value
+
+3. **Repository Permissions**: Ensure the repository has the following permissions:
+   - Contents: Read
+   - Pages: Write
+   - id-token: Write
+
+### Manual Documentation Generation
+To generate docs locally:
+```bash
+# Generate and serve documentation locally
+dbt docs generate --target prod
+dbt docs serve --port 8080
+```
+
+## �🔧 Development Setup
 
 ### Pre-commit Hooks
 This project uses pre-commit hooks to maintain code quality:
