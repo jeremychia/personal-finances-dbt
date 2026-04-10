@@ -7,6 +7,7 @@ Car Insurance,Transport (Driving),Expense,Fixed
 Car Maintenance,Transport (Driving),Expense,Variable
 Cashback,Income,Income,Variable
 Claimable Expenses,Others,Transfer,Transfer
+Claude AI Subscription,Extras,Expense,Fixed
 Club Membership,Extras,Expense,Variable
 Dental,Wellness,Expense,Variable
 Donation,Extras,Expense,Variable
@@ -35,6 +36,7 @@ Housing Renovation,Normanton Park,Capital,Capital
 Housing Rental Income,Normanton Park,Capital,Capital
 Housing Running Costs,Normanton Park,Capital,Capital
 Housing Utilities,Normanton Park,Capital,Capital
+Income Disability Insurance,Insurance,Expense,Fixed
 Insurance (House Contents),Insurance,Expense,Fixed
 Insurance (Legal),Insurance,Expense,Fixed
 Insurance (Third Party Liability),Insurance,Expense,Fixed
