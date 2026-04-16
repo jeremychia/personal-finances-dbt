@@ -2,54 +2,51 @@ version: 2
 models:
   - name: fact_invm_balances_line_items
     description: |
-      Investment balance snapshots with mark-to-market valuations. Daily investment portfolio
-      positions showing market value, cost basis, and unrealized gains/losses. Includes both
-      local currency and SGD-converted values with separate tracking of investment performance
-      vs. FX gains/losses. |
-      Granularity: One row per date per investment source per currency |
-      Filters: None - includes all investment accounts |
+      Daily investment portfolio snapshots with mark-to-market values. Shows what you own, at what cost, and gains/losses—both from price changes and currency movements.
+
+      Granularity: One row per date per investment source per currency
+      Filters: None
       Keywords: investments, portfolio, market-value, unrealized-gains, multi-currency, SGD-conversion
     columns:
       - name: investment_source
-        description: Investment account identifier
+        description: Investment account identifier (e.g. "CDP - 5A1B - ASTREAVB290620", "CDP - BN4 - KEPPEL CORP", "CDP - RMRB - ASTREAIVB280614").
       - name: local_date
-        description: Balance snapshot date
+        description: Balance snapshot date (e.g. "2018-07-18", "2018-10-26", "2018-12-25").
       - name: local_currency_market
-        description: Investment currency code
+        description: Investment currency code (e.g. "HKD", "SGD", "USD").
       - name: local_market
-        description: Market value in local currency
+        description: Market value in local currency (e.g. "0.0", "1.0", "1.83").
       - name: sgd_currency_market
-        description: SGD currency indicator
+        description: SGD currency indicator.
       - name: sgd_market
-        description: Market value converted to SGD
+        description: Market value converted to SGD (e.g. "0.0", "1.0", "1.83").
       - name: sgd_invm_gain_loss
-        description: Unrealized investment gains/losses in SGD
+        description: Unrealized investment gains/losses in SGD from price changes (e.g. "-10550.615380218434", "-10419.301886507414", "-10250.589663810153").
       - name: sgd_fx_gain_loss
-        description: Unrealized FX gains/losses in SGD
+        description: Unrealized FX gains/losses in SGD from exchange rate movements (e.g. "-22500.0", "-1209.7801652335147", "-1143.411595771453").
       - name: is_redeemed
         description: Flag indicating if position has been liquidated
   - name: fact_invm_balances_sgd_movement
     description: |
-      Daily changes in investment portfolio values. Calculates day-over-day changes in
-      investment positions, separating investment performance from FX movements. Used for
-      cash flow analysis and performance attribution. |
-      Granularity: One row per date per investment source per currency |
-      Filters: None - includes all investment accounts |
+      Day-over-day changes in investment portfolio values. Breaks down daily swings into investment performance (price changes) vs. FX movements (currency changes).
+
+      Granularity: One row per date per investment source per currency
+      Filters: None
       Keywords: investments, movements, changes, performance-attribution, SGD-conversion
     columns:
       - name: investment_source
-        description: Investment account identifier
+        description: Investment account identifier (e.g. "CDP - 5A1B - ASTREAVB290620", "CDP - BN4 - KEPPEL CORP", "CDP - RMRB - ASTREAIVB280614").
       - name: local_date
-        description: Movement date
+        description: Movement date (e.g. "2018-07-18", "2018-10-26", "2018-12-25").
       - name: local_currency_market
-        description: Investment currency code
+        description: Investment currency code (e.g. "HKD", "SGD", "USD").
       - name: sgd_currency_market
-        description: SGD currency indicator
+        description: SGD currency indicator.
       - name: change_local_market
-        description: Change in market value (local currency)
+        description: Change in market value (local currency) (e.g. "-46342.71", "-10694.22", "-10635.1").
       - name: change_sgd_market
-        description: Change in market value (SGD)
+        description: Change in market value (SGD) (e.g. "-13498.25", "-10694.22", "-10635.1").
       - name: change_sgd_invm_gain_loss
-        description: Change in investment gains/losses (SGD)
+        description: Change in investment gains/losses (SGD) (e.g. "-2054.08", "-1619.3", "-1216.65").
       - name: change_sgd_fx_gain_loss
-        description: Change in FX gains/losses (SGD)
+        description: Change in FX gains/losses (SGD) (e.g. "-21486.61", "-839.35", "-705.12").

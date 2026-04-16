@@ -2,34 +2,31 @@ version: 2
 models:
   - name: fact_eur_exchange_rates_long
     description: |
-      EUR exchange rates in long format for multi-currency analysis. Daily foreign exchange
-      rates with EUR as the base currency. Transformed to long format with one row per
-      date-currency pair for easy joining with transaction data. |
-      Granularity: One row per date per currency pair |
-      Filters: None - includes all available currencies |
+      Daily EUR-to-X exchange rates in long format. One row per date per currency pair, making it easy to join with EUR-denominated transaction tables for multi-currency conversion.
+
+      Granularity: One row per date per currency pair
+      Filters: None
       Keywords: forex, exchange-rates, currency-conversion, EUR, FX
     columns:
       - name: local_date
-        description: Exchange rate date
+        description: Exchange rate date (e.g. "2018-01-01", "2018-01-02", "2018-01-03").
       - name: eur
-        description: EUR base amount (always 1)
+        description: EUR base amount (always 1).
       - name: exchange_rate
-        description: Exchange rate from EUR to target currency
+        description: Exchange rate from EUR to target currency (e.g. "0.82388", "0.82428", "0.82445").
       - name: currency
-        description: Target currency code
+        description: Target currency code (e.g. "CHF", "GBP", "HKD").
   - name: fact_sgd_exchange_rates_long
     description: |
-      SGD exchange rates in long format for multi-currency analysis. Daily foreign exchange
-      rates with SGD as the base currency. Combines data from ECB EUR rates and direct SGD
-      rates. Transformed to long format with one row per date-currency pair for easy joining
-      with transaction data. |
-      Granularity: One row per date per currency pair |
-      Filters: None - includes all available currencies |
+      Daily SGD-to-X exchange rates in long format. Combines ECB EUR rates and direct SGD rates. One row per date per currency pair for easy joining with SGD transaction and balance tables.
+
+      Granularity: One row per date per currency pair
+      Filters: None
       Keywords: forex, exchange-rates, currency-conversion, SGD, FX, multi-source
     columns:
       - name: local_date
-        description: Exchange rate date
+        description: Exchange rate date (e.g. "2018-01-01", "2018-01-02", "2018-01-03").
       - name: currency
-        description: Target currency code
+        description: Target currency code (e.g. "CHF", "EUR", "GBP").
       - name: exchange_rate
-        description: Exchange rate from SGD to target currency
+        description: Exchange rate from SGD to target currency (e.g. "0.5291485394655066", "0.5293678446988551", "0.5293813481071098").

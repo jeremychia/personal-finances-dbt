@@ -333,4 +333,19 @@ order by 1
 
 ```
 
+## 🛠️ Development
+
+### Claude Code Integration
+
+This project includes a custom Claude Code skill for consistent dbt model documentation.
+
+**Invoke the skill:**
+```
+/dbt-docs
+```
+
+This provides documentation templates, examples, and a validation checklist when adding or updating dbt models.
+
+**Learn the standard:** See `DOCUMENTATION_FRAMEWORK.md` for the design principles, information theory, and why this standard matters for financial consolidation systems.
+
 This project provides a robust foundation for personal financial analysis with the flexibility to accommodate complex multi-currency scenarios and diverse financial institution integrations.

@@ -2,61 +2,50 @@ version: 2
 models:
   - name: mart_sgd_balances
     description: |
-      **Unified daily balances across all accounts (bank + investments) in SGD.**
+      All your account balances in one place (bank and investments), converted to SGD. Shows what you own at market value, gains/losses from investments and currency movements, with one row per account per day.
 
-      Combines bank and investment balances into a single view for comprehensive net worth
-      tracking. All values normalized to SGD with account type classification (cash,
-      credit-card, investment) and latest date flagging for current positions.
-
-      **Granularity:** One row per date per source per account type
-
-      **Filters:** Historical dates up to yesterday
-
-      **Keywords:** net-worth, consolidated-balances, SGD, portfolio, investments, cash, total-assets
+      Granularity: One row per date per source per account type
+      Filters: Historical dates up to yesterday
+      Keywords: net-worth, consolidated-balances, SGD, portfolio, investments, cash, total-assets
     columns:
       - name: account_type
-        description: Account classification (investment, cash, credit-card)
+        description: Account classification (investment, cash, credit-card) (e.g. "cash", "credit-card", "investment").
       - name: local_date
-        description: Balance date
+        description: Balance date (e.g. "2018-01-01", "2018-01-02", "2018-01-03").
       - name: source_name
-        description: Unified source identifier (investment or bank)
+        description: Account identifier (investment or bank) (e.g. "CDP - 5A1B - ASTREAVB290620", "CDP - BN4 - KEPPEL CORP", "CDP - RMRB - ASTREAIVB280614").
       - name: local_currency
-        description: Original account currency
+        description: Original account currency (e.g. "CHF", "EUR", "GBP").
       - name: local_balance
-        description: Balance in local currency
+        description: Balance in local currency (e.g. "-10296.67", "-10277.72", "-10155.38").
       - name: sgd_currency
-        description: SGD currency indicator
+        description: SGD currency indicator.
       - name: sgd_balance
-        description: Balance converted to SGD
+        description: Balance converted to SGD (e.g. "-10296.67", "-10277.72", "-10155.38").
       - name: sgd_invm_gain_loss
-        description: Investment gains/losses (SGD, 0 for bank accounts)
+        description: Investment gains/losses in SGD, 0 for bank accounts (e.g. "-10550.66", "-10419.33", "-10250.63").
       - name: sgd_fx_gain_loss
-        description: FX gains/losses (SGD)
+        description: FX gains/losses in SGD (e.g. "-2990.89", "-2984.48", "-2978.13").
       - name: day_of_week_iso
         description: ISO day of week
       - name: is_latest_date
         description: Flag for most recent date (current positions)
   - name: mart_transactions
     description: |
-      **Unified transaction history across all bank accounts in SGD.**
+      All your bank transactions in one place, converted to SGD. Shows what you spent, where, and why, with category breakdowns and day-of-week for pattern analysis.
 
-      Consolidated view of all bank transactions with category classifications and SGD
-      normalization. Includes day-of-week analysis and fixed vs. variable expense tracking.
-
-      **Granularity:** One row per transaction
-
-      **Filters:** None - includes all transactions
-
-      **Keywords:** transactions, expenses, spending, SGD, categories, bank-activity
+      Granularity: One row per transaction
+      Filters: None
+      Keywords: transactions, expenses, spending, SGD, categories, bank-activity
     columns:
       - name: bank_source
-        description: Source bank/account identifier
+        description: Source bank/account identifier (e.g. "adjustments-sgd", "amex_payback-cc", "amex_rose-cc").
       - name: local_date
-        description: Transaction date
+        description: Transaction date (e.g. "2018-08-01", "2018-08-11", "2018-08-12").
       - name: local_currency
-        description: Transaction currency
+        description: Transaction currency (e.g. "CHF", "EUR", "GBP").
       - name: local_amount
-        description: Transaction amount in local currency
+        description: Transaction amount in local currency (e.g. "-32539.0", "-24999.0", "-23000.0").
       - name: sgd_currency
         description: SGD currency indicator
       - name: sgd_amount
@@ -64,14 +53,14 @@ models:
       - name: exchange_rate
         description: Exchange rate used for conversion
       - name: category
-        description: Primary transaction category
+        description: Primary transaction category (e.g. "Allowance", "Bank Charge", "Books").
       - name: category2
-        description: Secondary category grouping
+        description: Secondary category grouping (e.g. "Contributions", "Extras", "Income").
       - name: category3
-        description: Tertiary category grouping
+        description: Tertiary category grouping (e.g. "Capital", "Expense", "Income").
       - name: fixed_vs_variable
-        description: Fixed or variable expense classification
+        description: Fixed or variable expense classification (e.g. "Capital", "Fixed", "Investment").
       - name: description
-        description: Transaction description
+        description: Transaction description (e.g. "  ", "  CASH REBATE", " 0016RF9246128 SOAP CYCLING (SINGAP").
       - name: day_of_week_iso
         description: ISO day of week for transaction date

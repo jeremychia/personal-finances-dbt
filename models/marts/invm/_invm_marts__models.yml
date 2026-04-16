@@ -2,31 +2,25 @@ version: 2
 models:
   - name: mart_sgd_invm_balances
     description: |
-      **Investment portfolio daily balances with cumulative P&L tracking.**
+      Your investment portfolio at market value, with cumulative gains/losses. Breaks out what you've made (or lost) from price changes vs. currency movements, so you can see where returns actually came from.
 
-      Complete investment portfolio positions over time showing market value and cumulative
-      unrealized gains/losses. Separates investment performance from FX movements for
-      accurate performance attribution.
-
-      **Granularity:** One row per date per investment source per currency
-
-      **Filters:** Historical dates up to yesterday
-
-      **Keywords:** investments, portfolio-value, cumulative-gains, unrealized-PnL, SGD
+      Granularity: One row per date per investment source per currency
+      Filters: Historical dates up to yesterday
+      Keywords: investments, portfolio-value, cumulative-gains, unrealized-PnL, SGD
     columns:
       - name: local_date
-        description: Balance date
+        description: Balance date (e.g. "2018-01-01", "2018-01-02", "2018-01-03").
       - name: investment_source
-        description: Investment account identifier
+        description: Investment account identifier (e.g. "CDP - 5A1B - ASTREAVB290620", "CDP - BN4 - KEPPEL CORP", "CDP - RMRB - ASTREAIVB280614").
       - name: local_currency_market
-        description: Investment currency code
+        description: Investment currency code (e.g. "HKD", "SGD", "USD").
       - name: sgd_currency_market
-        description: SGD currency indicator
+        description: SGD currency indicator.
       - name: local_market
-        description: Market value in local currency
+        description: Market value in local currency (e.g. "0.0", "1.0", "1.83").
       - name: sgd_market
-        description: Market value in SGD
+        description: Market value in SGD (e.g. "-0.02", "0.0", "1.0").
       - name: cumulative_sgd_invm_gain_loss
-        description: Cumulative unrealized investment gains/losses (SGD)
+        description: Cumulative unrealized investment gains/losses in SGD from price changes (e.g. "-10550.66", "-10419.33", "-10250.63").
       - name: cumulative_sgd_fx_gain_loss
-        description: Cumulative unrealized FX gains/losses (SGD)
+        description: Cumulative unrealized FX gains/losses in SGD from currency movements (e.g. "-1209.82", "-1143.45", "-1013.43").
